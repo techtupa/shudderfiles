@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Auth callback - Shudder Files</title>
+  <style>body{font-family:Arial,Helvetica,sans-serif;padding:30px;background:#f6f7fb}pre{background:#fff;padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(8,15,30,0.06);overflow:auto}</style>
+</head>
+<body>
+  <h2>Authentication callback</h2>
+  <p>If the OAuth flow returned an access token in the URL fragment, it will be shown below. You can copy it for testing.</p>
+  <pre id="output">Waiting for token in URL fragment...</pre>
+  <script>
+    function parseFragment() {
+      const frag = location.hash.slice(1);
+      if (!frag) return 'No token found in URL fragment.';
+      const params = Object.fromEntries(new URLSearchParams(frag));
+      if (params.access_token) {
+        return JSON.stringify({
+          access_token: params.access_token,
+          expires_in: params.expires_in || null,
+          token_type: params.token_type || null
+        }, null, 2);
+      }
+      return 'No access_token parameter found in fragment: ' + frag;
+    }
+    document.getElementById('output').textContent = parseFragment();
+  </script>
+</body>
+</html>
