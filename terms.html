@@ -1,19 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Terms of Service - TechTupa / Shudder Files</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms of Use — Shudder Files</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; margin:0; color:#222; background:#f6f7fb; }
+    header { background:#0b1220; color:#fff; padding:28px 18px; display:flex; align-items:center; justify-content:center; gap:14px; }
+    header img { width:56px; height:56px; border-radius:12px; box-shadow:0 0 8px rgba(255,255,255,0.15); }
+    .wrap { max-width:900px; margin:28px auto; padding:0 18px; }
+    h1,h2 { color:#0b1220; }
+    .card { background:#fff; border-radius:12px; padding:22px; margin-top:18px; box-shadow:0 6px 18px rgba(8,15,30,0.06); }
+    footer { margin:28px 0; color:#666; font-size:13px; text-align:center; }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; line-height: 1.6;">
-  <h1>Terms of Service</h1>
-  <p>Last updated: October 2025</p>
+<body>
+<header>
+  <img src="logo.png" alt="Shudder Files logo">
+  <div>
+    <h1>Terms of Use</h1>
+    <p class="lead">Please read these terms carefully before using our application.</p>
+  </div>
+</header>
 
-  <p>This application, developed under TechTupa for the Shudder Files channel, automates the upload and management of video content through the TikTok API. By using this app, you agree that it may request permission to publish videos, read basic profile data, and manage your own TikTok content.</p>
+<main class="wrap">
+  <section class="card">
+    <h2>Use of the App</h2>
+    <p>By using Shudder Files, you agree to comply with all applicable laws and to use the service only for legitimate and ethical purposes related to content management and automation.</p>
 
-  <p>No personal data is collected, stored, or shared by TechTupa beyond what is required for TikTok API authentication. The app acts only as a secure automation layer for authorized content creators.</p>
+    <h2>Acceptable Usage</h2>
+    <ul>
+      <li>Do not use the app to distribute spam or unauthorized advertising.</li>
+      <li>Do not upload or publish content that violates intellectual property rights or community guidelines of any connected platform.</li>
+      <li>Do not attempt to reverse-engineer or misuse system APIs.</li>
+    </ul>
 
-  <p>Use of this tool implies acceptance of TikTok’s own Terms of Service and Developer Policy.</p>
+    <h2>Liability</h2>
+    <p>Shudder Files provides tools “as is”, without warranties of any kind. Users are responsible for the content and actions performed through their connected accounts.</p>
 
-  <p>For questions or requests regarding this integration, please contact: <a href="mailto:support@techtupa.com.br">support@techtupa.com.br</a></p>
+    <h2>Modifications</h2>
+    <p>We may update these terms periodically to reflect improvements or policy changes. Continued use of the application constitutes acceptance of any revised terms.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Reach out via <a href="mailto:shudder.files@outlook.com">shudder.files@outlook.com</a>.</p>
+  </section>
+</main>
+
+<footer>
+  Shudder Files — © <span id="year"></span> — Hosted on GitHub Pages
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
