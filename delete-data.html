@@ -1,18 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Deletion Instructions</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Deletion — Shudder Files</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; margin:0; color:#222; background:#f6f7fb; }
+    header { background:#0b1220; color:#fff; padding:28px 18px; display:flex; align-items:center; justify-content:center; gap:14px; }
+    header img { width:56px; height:56px; border-radius:12px; box-shadow:0 0 8px rgba(255,255,255,0.15); }
+    .wrap { max-width:900px; margin:28px auto; padding:0 18px; }
+    h1,h2 { color:#0b1220; }
+    .card { background:#fff; border-radius:12px; padding:22px; margin-top:18px; box-shadow:0 6px 18px rgba(8,15,30,0.06); }
+    footer { margin:28px 0; color:#666; font-size:13px; text-align:center; }
+  </style>
 </head>
 <body>
-  <h1>Data Deletion Instructions</h1>
-  <p>
-    If you wish to delete your data collected by the Shudder Files app, please contact us at 
-    <a href="mailto:shudder.files@outlook.com">shudder.files@outlook.com</a>.
-  </p>
-  <p>
-    Upon receiving your request, we will permanently delete all associated data within 30 days.
-  </p>
+<header>
+  <img src="logo.png" alt="Shudder Files logo">
+  <div>
+    <h1>Data Deletion</h1>
+    <p class="lead">Instructions for users who wish to delete their information.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <p>If you have used Shudder Files and would like your account data or publishing information removed, please follow the steps below.</p>
+
+    <h2>How to Request Data Deletion</h2>
+    <ol>
+      <li>Send an email to <a href="mailto:shudder.files@outlook.com">shudder.files@outlook.com</a> using the same address linked to your account.</li>
+      <li>Include the subject line: <b>“Data Deletion Request”</b>.</li>
+      <li>Specify any relevant IDs or platform usernames if applicable.</li>
+    </ol>
+
+    <p>Your data will be permanently deleted from our servers and integrations within 72 hours of confirmation.</p>
+
+    <h2>Note</h2>
+    <p>We do not retain content, credentials, or media after deletion requests are completed.</p>
+  </section>
+</main>
+
+<footer>
+  Shudder Files — © <span id="year"></span> — Hosted on GitHub Pages
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
