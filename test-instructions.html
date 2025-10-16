@@ -1,14 +1,54 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Test Instructions - Shudder Files</title></head>
-<body style="font-family:Arial,Helvetica,sans-serif;line-height:1.5;padding:20px">
-  <h1>Test instructions for Meta reviewers</h1>
-  <ol>
-    <li>Open Graph API Explorer: <a href="https://developers.facebook.com/tools/explorer/" target="_blank">Graph API Explorer</a>.</li>
-    <li>Select the app: <strong>AutoPublishShudder</strong>.</li>
-    <li>Generate a user access token (type: user). Use redirect URI <code>https://techtupa.github.io/shudderfiles/auth-callback.html</code> if performing OAuth.</li>
-    <li>Test endpoints: <code>/me?fields=id,name</code>, <code>/me/accounts</code>, and <code>/{ig_user_id}/media</code> (documentation supplied on app).</li>
-  </ol>
-  <p>Contact: <a href="mailto:shudder.files@outlook.com">shudder.files@outlook.com</a></p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Testing Instructions — Shudder Files</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; margin:0; color:#222; background:#f6f7fb; }
+    header { background:#0b1220; color:#fff; padding:28px 18px; display:flex; align-items:center; justify-content:center; gap:14px; }
+    header img { width:56px; height:56px; border-radius:12px; box-shadow:0 0 8px rgba(255,255,255,0.15); }
+    .wrap { max-width:900px; margin:28px auto; padding:0 18px; }
+    h1,h2 { color:#0b1220; }
+    .card { background:#fff; border-radius:12px; padding:22px; margin-top:18px; box-shadow:0 6px 18px rgba(8,15,30,0.06); }
+    footer { margin:28px 0; color:#666; font-size:13px; text-align:center; }
+  </style>
+</head>
+<body>
+<header>
+  <img src="logo.png" alt="Shudder Files logo">
+  <div>
+    <h1>Testing Instructions</h1>
+    <p class="lead">Guide for reviewers or developers testing Shudder Files integrations.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <h2>Setup</h2>
+    <ol>
+      <li>Log in using a test business or creator account with appropriate publishing permissions.</li>
+      <li>Grant access when prompted by the OAuth login window.</li>
+      <li>After authorization, your access token will be used to verify posting permissions.</li>
+    </ol>
+
+    <h2>Testing Auto Publishing</h2>
+    <ul>
+      <li>Create a short test video or image for posting.</li>
+      <li>Submit the media through the app dashboard or API endpoint.</li>
+      <li>Confirm that the content appears correctly on the connected profile or page.</li>
+    </ul>
+
+    <h2>Troubleshooting</h2>
+    <p>If publishing fails, verify your permissions, token validity, and connected account roles.  
+    For support, email <a href="mailto:shudder.files@outlook.com">shudder.files@outlook.com</a>.</p>
+  </section>
+</main>
+
+<footer>
+  Shudder Files — © <span id="year"></span> — Hosted on GitHub Pages
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
