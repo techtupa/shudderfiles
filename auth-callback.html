@@ -3,28 +3,90 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Auth callback - Shudder Files</title>
-  <style>body{font-family:Arial,Helvetica,sans-serif;padding:30px;background:#f6f7fb}pre{background:#fff;padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(8,15,30,0.06);overflow:auto}</style>
+  <title>Auth Callback — Shudder Files</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 30px;
+      background: #f6f7fb;
+      color: #222;
+    }
+    h2 { margin-bottom: 6px; color: #0b1220; }
+    .status {
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .success { background: #dcfce7; color: #15803d; }
+    .error { background: #fee2e2; color: #b91c1c; }
+    pre {
+      background: #fff;
+      padding: 14px;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(8,15,30,0.06);
+      overflow: auto;
+    }
+    button {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border: none;
+      background: #0b66f2;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
-  <h2>Authentication callback</h2>
-  <p>If the OAuth flow returned an access token in the URL fragment, it will be shown below. You can copy it for testing.</p>
+  <h2>Authentication Callback</h2>
+  <p>This page captures the <strong>access token</strong> returned via OAuth for testing purposes. You may copy the token below.</p>
+  <div id="status" class="status">Checking URL fragment...</div>
   <pre id="output">Waiting for token in URL fragment...</pre>
+  <button id="copyBtn" style="display:none;">Copy Token</button>
+
   <script>
     function parseFragment() {
       const frag = location.hash.slice(1);
-      if (!frag) return 'No token found in URL fragment.';
+      const statusEl = document.getElementById('status');
+      const outputEl = document.getElementById('output');
+      const copyBtn = document.getElementById('copyBtn');
+
+      if (!frag) {
+        statusEl.textContent = "No token found in URL.";
+        statusEl.className = "status error";
+        outputEl.textContent = "No token returned.";
+        return;
+      }
+
       const params = Object.fromEntries(new URLSearchParams(frag));
       if (params.access_token) {
-        return JSON.stringify({
+        statusEl.textContent = "✅ Access token received!";
+        statusEl.className = "status success";
+
+        const result = {
           access_token: params.access_token,
           expires_in: params.expires_in || null,
           token_type: params.token_type || null
-        }, null, 2);
+        };
+
+        outputEl.textContent = JSON.stringify(result, null, 2);
+        copyBtn.style.display = 'inline-block';
+        copyBtn.onclick = () => {
+          navigator.clipboard.writeText(params.access_token)
+            .then(() => copyBtn.textContent = 'Copied!')
+            .catch(() => copyBtn.textContent = 'Copy failed');
+        };
+      } else {
+        statusEl.textContent = "No access_token in URL.";
+        statusEl.className = "status error";
+        outputEl.textContent = "Raw fragment: " + frag;
       }
-      return 'No access_token parameter found in fragment: ' + frag;
     }
-    document.getElementById('output').textContent = parseFragment();
+
+    parseFragment();
   </script>
 </body>
 </html>
