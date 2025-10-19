@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Testing Instructions — Shudder Files</title>
+  <title>Testing Instructions — Shudder Files / TechTupa</title>
   <link rel="icon" type="image/png" href="logo.png">
   <style>
     body { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; margin:0; color:#222; background:#f6f7fb; }
@@ -20,34 +20,67 @@
   <img src="logo.png" alt="Shudder Files logo">
   <div>
     <h1>Testing Instructions</h1>
-    <p class="lead">Guide for reviewers or developers testing Shudder Files integrations.</p>
+    <p class="lead">Guide for reviewers testing Meta or TikTok integrations via Shudder Files.</p>
   </div>
 </header>
 
 <main class="wrap">
   <section class="card">
-    <h2>Setup</h2>
-    <ol>
-      <li>Log in using a test business or creator account with appropriate publishing permissions.</li>
-      <li>Grant access when prompted by the OAuth login window.</li>
-      <li>After authorization, your access token will be used to verify posting permissions.</li>
-    </ol>
+    <h2>About This App</h2>
+    <p>
+      Shudder Files is an automation tool developed by <strong>TechTupa (MEI)</strong> to assist creators in publishing short videos and images
+      to Instagram, Facebook, and TikTok through their official APIs. It uses authorized scopes and secure tokens for content publication and analytics access.
+    </p>
 
-    <h2>Testing Auto Publishing</h2>
+    <h2>OAuth Login & Redirect</h2>
     <ul>
-      <li>Create a short test video or image for posting.</li>
-      <li>Submit the media through the app dashboard or API endpoint.</li>
-      <li>Confirm that the content appears correctly on the connected profile or page.</li>
+      <li>OAuth Redirect URI: <code>https://techtupa.github.io/shudderfiles/auth-callback.html</code></li>
+      <li>Test user accounts are pre-authorized and added to the app configuration in the developer console.</li>
+      <li>Log in using a test <strong>Meta Business</strong> or <strong>TikTok Creator</strong> account with publishing permissions.</li>
+      <li>On success, the token is used for posting test media and retrieving basic profile data.</li>
     </ul>
 
+    <h2>Supported Scopes</h2>
+    <p><strong>Meta (Instagram/Facebook):</strong></p>
+    <ul>
+      <li><code>pages_show_list</code>, <code>pages_read_engagement</code></li>
+      <li><code>instagram_basic</code>, <code>instagram_content_publish</code></li>
+      <li><code>publish_video</code>, <code>pages_manage_posts</code></li>
+    </ul>
+
+    <p><strong>TikTok:</strong></p>
+    <ul>
+      <li><code>user.info.profile</code>, <code>user.info.stats</code></li>
+      <li><code>video.list</code>, <code>video.upload</code></li>
+      <li><code>artist.certification.read</code>, <code>artist.certification.update</code></li>
+    </ul>
+
+    <h2>Test Steps</h2>
+    <ol>
+      <li>Log in using one of the registered test accounts.</li>
+      <li>Authorize access when the OAuth window prompts for scopes.</li>
+      <li>Prepare a sample video or image for posting (e.g., a short clip or static thumbnail).</li>
+      <li>Use the Shudder Files interface or API endpoint to submit the media.</li>
+      <li>Verify that the post appears on the selected test profile (Facebook Page, Instagram Professional Account, or TikTok profile).</li>
+    </ol>
+
     <h2>Troubleshooting</h2>
-    <p>If publishing fails, verify your permissions, token validity, and connected account roles.  
-    For support, email <a href="mailto:shudder.files@outlook.com">shudder.files@outlook.com</a>.</p>
+    <ul>
+      <li>Check token expiration and refresh flow.</li>
+      <li>Verify connected Page/Account has proper publishing permissions.</li>
+      <li>Ensure that you're using a test user added in the developer console.</li>
+    </ul>
+
+    <h2>Support Contact</h2>
+    <p>
+      For test account credentials, error logs, or review clarification, email us at
+      <a href="mailto:shudder.files@outlook.com">shudder.files@outlook.com</a>.
+    </p>
   </section>
 </main>
 
 <footer>
-  Shudder Files — © <span id="year"></span> — Hosted on GitHub Pages
+  TechTupa / Shudder Files — © <span id="year"></span> — Hosted on GitHub Pages
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
